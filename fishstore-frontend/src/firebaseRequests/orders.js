@@ -4,7 +4,7 @@ import constants from '../constants';
 const getRequest = (uid) => {
   return new Promise((resolve, reject) => {
     axios
-      .get(`https://localhost:44384/api/values`)
+      .get(`https://localhost:44384/api/orders`)
       .then(res => {
         const orders = [];
         resolve(orders);
