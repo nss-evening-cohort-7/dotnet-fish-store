@@ -29,6 +29,7 @@ namespace FishStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -62,11 +63,14 @@ namespace FishStore
             }
 
             app.UseHttpsRedirection();
+            
             app.UseAuthentication();
+
             app.UseCors(builder =>
             {
                 builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials();
             });
+
             app.UseMvc();
         }
     }

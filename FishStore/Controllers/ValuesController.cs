@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FishStore.Controllers
 {
-    public class ValuesController : SecureControllerBase
+    [Route("api/[controller]")]
+    [Authorize]
+    public class ValuesController : Controller
     {
         // GET api/values
         [HttpGet]
